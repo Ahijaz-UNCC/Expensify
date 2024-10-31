@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <script src="{% static 'assets/js/script.js' %}"></script>
+</head>
+<body>
+    <div class="logo">
+    <img src="{% static 'assets/images/Group 34.png' %}" alt="Logo">
+    </div>
+
+    <!--Login forms-->
+    <div class="login">
+        <h2 class="loginTitle">Sign Up</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Signup</button>
+        </form>
+        <div class="form-links">
+            <a href="#">Forgot password or email</a>
+            <a href="{% url 'login' %}">Already have an account?</a>
+        </div>
+    </div>
+</body>
+</html>
