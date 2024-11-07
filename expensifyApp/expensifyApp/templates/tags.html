@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Inline CSS for Layout (recommended to move to an external CSS file) */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1A0F1E;
+            color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 375px;
+            height: 812px;
+            background-color: #1A0F1E;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #BBB;
+        }
+
+        .header-icon {
+            margin-right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #2B1E33;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 0 20px;
+            margin-bottom: 20px;
+        }
+
+        .search-icon {
+            color: #AAA;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .search-input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            color: #FFF;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .tag-list {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tag-item {
+            display: flex;
+            align-items: center;
+            background-color: #2B1E33;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+            color: #FFF;
+        }
+
+        .tag-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #FFF;
+            margin-right: 15px;
+        }
+
+        .tag-item.selected {
+            border: 1px solid #FFD60A;
+            color: #FFF;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            background-color: #2B1E33;
+            border-top: 1px solid #444;
+        }
+
+        .footer-icon {
+            font-size: 20px;
+            color: #BBB;
+            cursor: pointer;
+        }
+
+        .footer-icon.active {
+            color: #FFD60A;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <span class="header-icon">←</span>
+            <span>Tags</span>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search tags">
+        </div>
+
+        <!-- Tag List -->
+        <div class="tag-list">
+            <div class="tag-item">
+                <div class="tag-icon" style="background-color: #8A4FFF;">👚</div>
+                Clothing
+            </div>
+            <div class="tag-item">
+                <div class="tag-icon" style="background-color: #FF7845;">💻</div>
+                Electronics
+            </div>
+            <div class="tag-item selected">
+                <div class="tag-icon" style="background-color: #00C1D4;">🛒</div>
+                Groceries
+            </div>
+            <div class="tag-item selected">
+                <div class="tag-icon" style="background-color: #FFD600;">📁</div>
+                Investments
+            </div>
+            <div class="tag-item">
+                <div class="tag-icon" style="background-color: #00FF9A;">🌱</div>
+                Life
+            </div>
+            <div class="tag-item">
+                <div class="tag-icon" style="background-color: #FF4555;">🚗</div>
+                Transportation
+            </div>
+            <div class="tag-item selected">
+                <div class="tag-icon" style="background-color: #FFC700;">🏠</div>
+                Home Loan
+            </div>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="footer">
+            <a href="{% url 'home' %}" class="footer-icon active">🏠</a>
+            <a href="{% url 'portfolio' %}" class="footer-icon">💼</a>
+            <a href="{% url 'insights' %}" class="footer-icon">📊</a>
+            <a href="{% url 'calendar' %}" class="footer-icon">📅</a>
+        </div>
+    </div>
+</body>
+</html>

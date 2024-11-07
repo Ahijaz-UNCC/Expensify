@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Center</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Inlined CSS for layout (recommended to move to an external CSS file) */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1A0F1E;
+            color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 375px;
+            height: 812px;
+            background-color: #1A0F1E;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #1A0F1E;
+            font-weight: bold;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .notification-title {
+            font-size: 16px;
+            color: #FFD60A;
+        }
+
+        .important-deadline {
+            background-color: #2B1E33;
+            margin: 10px 20px;
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #00FF9A;
+        }
+
+        .recent-activity {
+            padding: 20px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .activity-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .activity-text {
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        .activity-date {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            background-color: #2B1E33;
+            border-top: 1px solid #444;
+        }
+
+        .footer-icon {
+            font-size: 20px;
+            color: #bbb;
+            cursor: pointer;
+        }
+
+        .footer-icon.active {
+            color: #FFD60A;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-time">08:48</div>
+            <div class="notification-title">Notification</div>
+            <div class="header-icon">🔔</div>
+        </div>
+
+        <!-- Important Deadline Notification -->
+        <div class="important-deadline">
+            <div class="profile-icon">P</div>
+            <div>
+                <div style="color: #FFD60A; font-weight: bold;">PinelabsPOS</div>
+                <div style="color: #aaa;">You have a pay due in two weeks</div>
+                <div style="color: #777; font-size: 12px;">May 24, 2022</div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="recent-activity">
+            <h3 style="color: #FFD60A;">Recent activity</h3>
+            <div class="activity-item">
+                <img src="{% static 'images/shell-logo.png' %}" alt="Shell Logo">
+                <div>
+                    <div class="activity-text">Shell</div>
+                    <div class="activity-text">You recently made a $2.00 purchase</div>
+                    <div class="activity-date">May 26, 2022</div>
+                </div>
+            </div>
+            <div class="activity-item">
+                <img src="{% static 'images/shell-logo.png' %}" alt="Shell Logo">
+                <div>
+                    <div class="activity-text">Shell</div>
+                    <div class="activity-text">You recently made a $5.00 purchase</div>
+                    <div class="activity-date">May 26, 2022</div>
+                </div>
+            </div>
+            <div class="activity-item">
+                <img src="{% static 'images/shell-logo.png' %}" alt="Shell Logo">
+                <div>
+                    <div class="activity-text">Shell</div>
+                    <div class="activity-text">You recently made a $20.00 purchase</div>
+                    <div class="activity-date">May 26, 2022</div>
+                </div>
+            </div>
+            <div class="activity-item">
+                <img src="{% static 'static\assets\images\Shell-Logo.png' %}" alt="Shell Logo">
+                <div>
+                    <div class="activity-text">Shell</div>
+                    <div class="activity-text">You recently made a $4.00 purchase</div>
+                    <div class="activity-date">May 26, 2022</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="footer">
+            <a href="{% url 'home' %}" class="footer-icon active">🏠</a>
+            <a href="{% url 'portfolio' %}" class="footer-icon">💼</a>
+            <a href="{% url 'insights' %}" class="footer-icon">📊</a>
+            <a href="{% url 'calendar' %}" class="footer-icon">📅</a>
+            <a href="{% url 'notification-settings' %}" class="footer-icon">⚙️</a>
+        </div>
+    </div>

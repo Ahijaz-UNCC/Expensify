@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Menu UI</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1b2e;
+            color: #f0e5d8;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            height: 100vh;
+            background-color: #292540;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            color: #ffffff;
+        }
+
+        /* Profile Section */
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .profile .info {
+            color: #e2b97f;
+        }
+        .profile .name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .profile .role {
+            font-size: 14px;
+            color: #d3d3d3;
+        }
+        .edit-icon {
+            margin-left: auto;
+            color: #d3d3d3;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background-color: #3a354d;
+            color: #f0e5d8;
+            outline: none;
+            font-size: 14px;
+        }
+        
+        /* Menu */
+        .menu {
+            list-style: none;
+            flex-grow: 1;
+        }
+        .menu li {
+            margin-bottom: 15px;
+        }
+        .menu a {
+            display: flex;
+            align-items: center;
+            color: #f0e5d8;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .menu a:hover {
+            background-color: #3a354d;
+        }
+        .menu .icon {
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background-color: #292540;
+            position: fixed;
+            bottom: 0;
+            width: 300px;
+        }
+        .bottom-nav a {
+            color: #f0e5d8;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .bottom-nav a:hover {
+            color: #e2b97f;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Profile Section -->
+        <div class="profile">
+            <img src="https://source.unsplash.com/random/50x50?face" alt="Profile Picture">
+            <div class="info">
+                <div class="name">Chandrama Saha</div>
+                <div class="role">Expensify</div>
+            </div>
+            <span class="edit-icon">✏️</span>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+        </div>
+
+        <!-- Menu Items -->
+        <ul class="menu">
+            <li><a href="#"><span class="icon">📊</span>Records</a></li>
+            <li><a href="#"><span class="icon">🏦</span>Bank Sync</a></li>
+            <li><a href="#"><span class="icon">⬆️</span>Imports</a></li>
+            <li><a href="#"><span class="icon">🧾</span>Receipts</a></li>
+            <li><a href="#"><span class="icon">🏷️</span>Tags</a></li>
+            <li><a href="#"><span class="icon">💳</span>Cards</a></li>
+            <li><a href="#"><span class="icon">➕</span>Set Budget</a></li>
+            <li><a href="#"><span class="icon">🔒</span>CVV</a></li>
+            <li><a href="#"><span class="icon">📋</span>Lists</a></li>
+            <li><a href="#"><span class="icon">⚙️</span>Settings</a></li>
+        </ul>
+
+        <!-- Bottom Navigation Icons -->
+        <div class="bottom-nav">
+            <a href="#"><span>🏠</span></a>
+            <a href="#"><span>💼</span></a>
+            <a href="#"><span>📊</span></a>
+            <a href="#"><span>👤</span></a>
+        </div>
+    </div>
+</body>
+</html>
