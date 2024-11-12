@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker UI</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #3b2d5b, #1f1f2e);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 320px;
+            background-color: #26233b;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #c0c0c0;
+            font-size: 12px;
+        }
+
+        .header .time {
+            font-weight: bold;
+        }
+
+        .header .battery {
+            font-size: 18px;
+        }
+
+        .toggle-buttons {
+            display: flex;
+            margin: 20px 0;
+            background: linear-gradient(to right, #d46d6d, #e89b4f);
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .toggle-buttons button {
+            flex: 1;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-buttons .active {
+            background: #e89b4f;
+        }
+
+        .category {
+            margin: 15px 0;
+            background-color: #3c3757;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .amount-display {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .description {
+            background: #3c3757;
+            color: #c0c0c0;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .enter-expense {
+            margin: 15px 0;
+            background-color: #e89b4f;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .keypad button {
+            padding: 20px;
+            font-size: 24px;
+            background-color: #3c3757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <span class="time">08:48</span>
+            <span class="battery">🔋</span>
+        </div>
+
+        <!-- Income / Expense Toggle -->
+        <div class="toggle-buttons">
+            <button class="active">INCOME</button>
+            <button>EXPENSE</button>
+        </div>
+
+        <!-- Category Dropdown -->
+        <div class="category">
+            Category ▼
+        </div>
+
+        <!-- Amount Display -->
+        <div class="amount-display">$0</div>
+
+        <!-- Description Input -->
+        <input type="text" class="description" placeholder="Add Description" />
+
+        <!-- Enter Expense Button -->
+        <button class="enter-expense">Enter Expense</button>
+
+        <!-- Keypad -->
+        <div class="keypad">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+            <button>-</button>
+            <button>←</button>
+        </div>
+    </div>
+</body>
+</html>

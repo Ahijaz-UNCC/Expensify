@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight UI</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2a2235, #0f0f1b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 360px;
+            background-color: #1e1c29;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+        }
+
+        .header .time {
+            font-weight: bold;
+        }
+
+        .header .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #c0c0c0;
+        }
+
+        .tabs .tab {
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .tabs .tab.active {
+            background-color: #e89b4f;
+            color: white;
+        }
+
+        /* Expenses Section */
+        .expense-summary {
+            text-align: center;
+            color: #e89b4f;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .total-expense {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+        }
+
+        .category-tabs .tab.active {
+            color: #e89b4f;
+            border-bottom: 2px solid #e89b4f;
+        }
+
+        /* Graph */
+        .graph-container {
+            position: relative;
+            height: 150px;
+            margin: 20px 0;
+        }
+
+        .graph {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(232, 155, 79, 0.6), rgba(29, 26, 44, 0));
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graph .point {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 50%;
+            background-color: #995e3b;
+            border-radius: 20px;
+        }
+
+        .graph .point-1 { left: 10%; height: 40%; }
+        .graph .point-2 { left: 30%; height: 70%; }
+        .graph .point-3 { left: 50%; height: 100%; }
+        .graph .point-4 { left: 70%; height: 60%; }
+        .graph .point-5 { left: 90%; height: 80%; }
+
+        .graph-label {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2px 6px;
+            border-radius: 8px;
+            color: #e89b4f;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 10px;
+            margin-top: 20px;
+            border-top: 1px solid #3c3757;
+        }
+
+        .bottom-nav .nav-item {
+            font-size: 24px;
+            color: #c0c0c0;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .bottom-nav .nav-item.active {
+            color: #e89b4f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <span class="time">08:48</span>
+            <span class="title">Insight</span>
+            <span class="notification-icon">🔔</span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <span class="tab active">Things to pay</span>
+            <span class="tab">Budget summary</span>
+        </div>
+
+        <!-- Daily / Monthly / Yearly Tabs -->
+        <div class="tabs">
+            <span class="tab active">Daily</span>
+            <span class="tab">Monthly</span>
+            <span class="tab">Yearly</span>
+        </div>
+
+        <!-- Expense Summary -->
+        <div class="expense-summary">Total Expense</div>
+        <div class="total-expense">₹18,687</div>
+
+        <!-- Expenses / Loan Tabs -->
+        <div class="category-tabs">
+            <span class="tab active">Expenses</span>
+            <span class="tab">Loan</span>
+        </div>
+
+        <!-- Graph -->
+        <div class="graph-container">
+            <div class="graph">
+                <div class="point point-1"></div>
+                <div class="point point-2"></div>
+                <div class="point point-3"></div>
+                <div class="point point-4"></div>
+                <div class="point point-5"></div>
+            </div>
+            <div class="graph-label">-₹995</div>
+        </div>
+
+        <!-- Weekdays -->
+        <div class="weekdays">
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+            <span>Sun</span>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <span class="nav-item active">🏠</span>
+            <span class="nav-item">💳</span>
+            <span class="nav-item">📊</span>
+            <span class="nav-item">🔍</span>
+            <span class="nav-item">👤</span>
+        </div>
+    </div>
+</body>
+</html>

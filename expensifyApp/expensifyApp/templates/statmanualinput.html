@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Input UI</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2a2235, #0f0f1b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 360px;
+            background-color: #1e1c29;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #c0c0c0;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .header .time {
+            font-weight: bold;
+        }
+
+        .header .icons {
+            display: flex;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            font-size: 16px;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .tabs .tab {
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        .tabs .tab.active {
+            color: #e89b4f;
+            border-bottom: 2px solid #e89b4f;
+        }
+
+        /* Form Sections */
+        .form-section {
+            background-color: #272334;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            color: #c0c0c0;
+        }
+
+        .form-section label {
+            font-size: 12px;
+            color: #7c7a8b;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-section .value {
+            font-size: 16px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-section .value span {
+            color: #e89b4f;
+        }
+        
+        /* Dropdown Arrow */
+        .form-section .dropdown {
+            color: #e89b4f;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <span class="time">08:48</span>
+            <div class="icons">
+                <span class="icon-close">✖</span>
+                <span class="icon-share">🔗</span>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <span class="tab active">INCOME</span>
+            <span class="tab">EXPENSE</span>
+        </div>
+
+        <!-- Form Sections -->
+        <div class="form-section">
+            <label>TRANSACTION</label>
+            <div class="value">
+                <span>2:05 p.m. | Sep 01, 2022</span>
+                <span class="dropdown">▼</span>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>CATEGORY</label>
+            <div class="value">
+                <span>Groceries</span>
+                <span class="dropdown">▼</span>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>AMOUNT</label>
+            <div class="value">
+                <span>₹235</span>
+                <span class="dropdown">▼</span>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>CURRENCY</label>
+            <div class="value">
+                <span>INR (₹)</span>
+                <span class="dropdown">▼</span>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>PAYMENT METHOD</label>
+            <div class="value">
+                <span>Physical Cash</span>
+                <span class="dropdown">▼</span>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>DESCRIPTION</label>
+            <div class="value">
+                <span>Weekly groceries</span>
+                <span class="dropdown">▼</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Insight</title>
+    <style>
+        /* Base styling for body */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1A0F1E;
+            color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Main container */
+        .container {
+            width: 375px;
+            height: 812px;
+            background-color: #1A0F1E;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #1A0F1E;
+            font-weight: bold;
+        }
+
+        .header-time {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Tab navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2B1E33;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .tab {
+            font-size: 16px;
+            padding: 5px 20px;
+            cursor: pointer;
+            color: #bbb;
+            border-radius: 20px;
+        }
+
+        .tab.active {
+            color: #FFD60A;
+        }
+
+        /* Highlight under Budget Summary */
+        .tab-highlight {
+            position: absolute;
+            width: 120px;
+            height: 3px;
+            background-color: #FFD60A;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Time filters */
+        .time-filters {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            color: #bbb;
+        }
+
+        .time-filter {
+            font-size: 16px;
+            padding: 5px 20px;
+            cursor: pointer;
+            color: #bbb;
+            border-radius: 20px;
+        }
+
+        .time-filter.active {
+            color: #FFD60A;
+            background: linear-gradient(to right, #FF6A6A, #FFD60A);
+        }
+
+        /* Budget Header */
+        .budget-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            padding: 0 20px;
+            margin-top: 10px;
+        }
+
+        .analytics {
+            color: #00FF9A;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .expenses {
+            color: #FF3A3A;
+        }
+
+        .loans {
+            color: #FFD60A;
+        }
+
+        .view-all {
+            color: #FF6A6A;
+            cursor: pointer;
+        }
+
+        /* Pie Chart */
+        .pie-chart-container {
+            position: relative;
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+        }
+
+        .pie-chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#00FF9A 0% 40%, #FF3A3A 40% 65%, #FFD60A 65% 100%);
+        }
+
+        .chart-label {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #FFF;
+        }
+
+        /* Summary */
+        .summary {
+            background-color: #332540;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 20px;
+            font-size: 14px;
+        }
+
+        .summary-header {
+            color: #FFD60A;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Footer Icons */
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            background-color: #2B1E33;
+            border-top: 1px solid #444;
+        }
+
+        .footer-icon {
+            font-size: 20px;
+            color: #bbb;
+            cursor: pointer;
+        }
+
+        .footer-icon.active {
+            color: #FFD60A;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-time">08:48</div>
+            <div class="header-title">Insight</div>
+            <div class="header-menu">☰</div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tab-nav">
+            <div class="tab">Things to pay</div>
+            <div class="tab active">Budget summary</div>
+            <div class="tab-highlight"></div>
+        </div>
+
+        <!-- Time filters -->
+        <div class="time-filters">
+            <div class="time-filter active">Daily</div>
+            <div class="time-filter">Monthly</div>
+            <div class="time-filter">Yearly</div>
+        </div>
+
+        <!-- Budget Header -->
+        <div class="budget-header">
+            <div class="analytics">$12,234</div>
+            <div class="expenses">$15,394 <span class="view-all">View All</span></div>
+        </div>
+        <div class="loans" style="text-align: center;">$7859 Savings</div>
+
+        <!-- Pie Chart -->
+        <div class="pie-chart-container">
+            <div class="pie-chart"></div>
+            <div class="chart-label">
+                <div>40%</div>
+                <div>Savings</div>
+            </div>
+        </div>
+
+        <!-- Budget summary section -->
+        <div class="summary">
+            <div class="summary-header">Budget summary</div>
+            <ul>
+                <li>40% of the budget has gone to your savings account</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-icon">🏠</div>
+            <div class="footer-icon">💼</div>
+            <div class="footer-icon active">📊</div>
+            <div class="footer-icon">📅</div>
+        </div>
+    </div>
+</body>
+</html>
