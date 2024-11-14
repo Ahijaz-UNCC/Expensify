@@ -1,11 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <p>dashboard</p>
+    <div class="dashboard">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="nav-item" onclick="showSection('wallet')">💳</div>
+            <div class="nav-item" onclick="showSection('insight')">📊</div>
+            <div class="nav-item" onclick="showSection('home')">🏠</div>
+
+            <!-- Back to Home Button -->
+            <div class="nav-item">
+                <a href="{% url 'dashboard' %}" class="back-button">🔙</a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="content">
+            <!-- Wallet Section with Pie Chart -->
+            <div class="section" id="wallet">
+                <div class="wallet-section">
+                    <h2>Wallet Balance: ₹{{ wallet_balance }}</h2>
+                    <h2>Total Expense: ₹{{ total_expense }}</h2>
+                </div>
+                <h2>Wallet</h2>
+                <canvas id="walletPieChart"></canvas> <!-- Pie Chart for Wallet Section -->
+            </div>
+
+            <!-- Insight Section with Line Chart -->
+            <div class="section" id="insight">
+                <h2>Insight</h2>
+                <canvas id="expenseLineChart"></canvas> <!-- Line Chart for Expenses -->
+            </div>
+
+            <!-- Home Section with Budget Pie Chart -->
+            <div class="section" id="home">
+                <h2>Home</h2>
+                <canvas id="budgetPieChart"></canvas> <!-- Pie Chart for Budget Summary -->
+            </div>
+
+            <!-- Manual Expense Entry Section -->
+            <div class="section" id="manual-expense">
+                <h2>Manual Expense Entry</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Add Expense</button>
+                </form>
+
+                <!-- Display Existing Expenses -->
+                <h3>Expense History</h3>
+                <ul>
+                    {% for expense in expenses %}
+                        <li>{{ expense.date }} - {{ expense.description }}: ₹{{ expense.amount }} ({{ expense.category }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for handling charts -->
+    <script src="{% static 'assets/js/script.js' %}"></script>
 </body>
 </html>
